@@ -35,6 +35,11 @@ namespace Testing
         {
             //Add vehicles to instock list of Vehicles with user input for the fields
             inStock.Vehicles.Add(new Vehicle(txtMake.Text, txtModel.Text, txtYear.Text, txtVin.Text));
+            //Clear user input fields for Add Vehicle to Stock
+            txtMake.Clear();
+            txtModel.Clear();
+            txtYear.Clear();
+            txtVin.Clear();
 
             
             //call the DisplayList method passing the inStock list to it
@@ -50,7 +55,7 @@ namespace Testing
             for (int i = 0; i < currentStock.Count; i++)
             {
                 //display list to rich text box using ToString() override from Vehicle class
-                rtbDisplay.Text += $"{currentStock[i].ToString()}";
+                rtbDisplay.Text += $"{i + 1}: {currentStock[i].ToString()}";
             }
         }
         //create click event for btnRemoveStock

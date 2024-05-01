@@ -27,6 +27,7 @@ namespace Testing
         public string Year { get => _year; set => _year = value; }
         public string Vin { get => _vin; set => _vin = value; }
         //Method
+        //create override ToString() to formatt how fields will be displayed
         public override string ToString()
         {
             return $"{_make} {_model} {_year} VIN: {_vin}\n";
