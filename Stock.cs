@@ -11,12 +11,11 @@ namespace Testing
         //fields
         List<Vehicle> _vehicles;
 
+        //Constructor
         public Stock(List<Vehicle> vehicles)
         {
             _vehicles = vehicles;
         }
-
-        //Constructor
 
         //Properties
         public List<Vehicle> Vehicles { get => _vehicles; set => _vehicles = value; }

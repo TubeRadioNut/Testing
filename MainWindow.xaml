@@ -56,19 +56,20 @@
                 Content="VIN"
                 FontSize="18" />
             <TextBox
-                x:Name="txtvin"
+                x:Name="txtVin"
                 TextWrapping="Wrap"
                 Width="265"
                 FontSize="16"
                 Background="#FFE3DCDC" />
             <Button
+                x:Name="btnAdd"
                 Content="Add To Stock"
                 Padding="2"
                 Height="32"
                 Width="116"
                 FontSize="18"
                 Background="#FFC8CFF6"
-                Click="Button_Click" />
+                Click="btnAdd_Click" />
         </StackPanel>
         <StackPanel
             Height="374"
@@ -92,23 +93,26 @@
                     <Paragraph>
                         <Run
                             x:Name="rtbDisplay"
-                            Text="RichTextBox" />
+                            Text="" />
                     </Paragraph>
                 </FlowDocument>
             </RichTextBox>
             <TextBox
+                x:Name="txtRemoveVin"
                 TextWrapping="Wrap"
                 Text="Vin To Remove"
                 Width="265"
                 FontSize="16"
                 Background="#FFE3DCDC" />
             <Button
+                x:Name="btnRemoveStock"
                 Content="Remove From Stock"
                 Height="37"
                 Padding="2"
                 FontSize="18"
                 Width="191"
-                Background="#FFC8CFF6" />
+                Background="#FFC8CFF6"
+                Click="btnRemoveStock_Click" />
         </StackPanel>
 
     </Canvas>

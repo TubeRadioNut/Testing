@@ -29,7 +29,7 @@ namespace Testing
         //Method
         public override string ToString()
         {
-            return $"{_make} {_model} {_year} VIN: {_vin}";
+            return $"{_make} {_model} {_year} VIN: {_vin}\n";
         }
     }//end of class
 

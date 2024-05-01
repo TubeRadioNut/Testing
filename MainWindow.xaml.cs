@@ -16,27 +16,59 @@ namespace Testing
     /// </summary>
     public partial class MainWindow : Window
     {
-        //Stock instock = new Stock();
+        
+        Stock inStock;
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent();//<--Don't delete this
+            List<Vehicle> externalList = new List<Vehicle>();
+            inStock = new Stock(externalList);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
+            inStock.Vehicles.Add(new Vehicle(txtMake.Text, txtModel.Text, txtYear.Text, txtVin.Text));
 
-            inStock.Stock.Add(new Vehicle(txtMake.Text, txtModel.Text, txtYear.Text, txtYear.Text));
-
-            DisplayList(inStock);
-
+            
+            
+            DisplayList(inStock.Vehicles);
+            
         }
 
-        public void DisplayList(List<Vehicle> inStock)
+        public void DisplayList(List<Vehicle> currentStock)
         {
-            foreach (Vehicle v in inStock)
+            
+            rtbDisplay.Text = "";
+            for (int i = 0; i < currentStock.Count; i++)
             {
-                rtbDisplay.Text = $"{inStock.v}";
+                
+                rtbDisplay.Text += $"{currentStock[i].ToString()}";
+                
+                
             }
+
+        }
+
+        private void btnRemoveStock_Click(object sender, RoutedEventArgs e)
+        {
+            string removeVin = txtRemoveVin.Text;
+
+            for (int i = 0; inStock.Vehicles.Count > i; i++)
+            {
+                if (inStock.Vehicles[i].Vin == removeVin)
+                {
+                    inStock.Vehicles.Remove(inStock.Vehicles[i]);
+                    txtRemoveVin.Clear();
+                    DisplayList(inStock.Vehicles);
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show($"Vehicle with VIN: {removeVin} was not found.");
+                }
+            }
+
+            
         }
     }
 }
