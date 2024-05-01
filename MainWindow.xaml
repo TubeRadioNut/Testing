@@ -100,7 +100,6 @@
             <TextBox
                 x:Name="txtRemoveVin"
                 TextWrapping="Wrap"
-                Text="Vin To Remove"
                 Width="265"
                 FontSize="16"
                 Background="#FFE3DCDC" />
