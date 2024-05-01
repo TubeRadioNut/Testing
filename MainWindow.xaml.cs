@@ -52,9 +52,11 @@ namespace Testing
         private void btnRemoveStock_Click(object sender, RoutedEventArgs e)
         {
             string removeVin = txtRemoveVin.Text;
+            
 
             for (int i = 0; inStock.Vehicles.Count > i; i++)
             {
+                
                 if (inStock.Vehicles[i].Vin == removeVin)
                 {
                     inStock.Vehicles.Remove(inStock.Vehicles[i]);
@@ -62,12 +64,10 @@ namespace Testing
                     DisplayList(inStock.Vehicles);
                     return;
                 }
-                else
-                {
-                    MessageBox.Show($"Vehicle with VIN: {removeVin} was not found.");
-                }
+        
             }
 
+            MessageBox.Show($"Vehicle with VIN: {removeVin} was not found.");
             
         }
     }
