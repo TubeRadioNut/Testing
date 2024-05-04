@@ -41,22 +41,30 @@ namespace Testing
             txtYear.Clear();
             txtVin.Clear();
 
-            
-            //call the DisplayList method passing the inStock list to it
-            DisplayList(inStock.Vehicles);
+
+            //call the DisplayList method 
+            //Testing: DisplayList(inStock.Vehicles);
+            DisplayList();
             
         }
+        //Testing to display list to rich text box
         //create DisplayList() method that takes a List<Vehicle> in its parameters
-        public void DisplayList(List<Vehicle> currentStock)
+        //public void DisplayList(List<Vehicle> currentStock)
+        //{
+        //    //clear rich text box
+        //    rtbDisplay.Text = "";
+        //    //loop throught List<Vehicles>
+        //    for (int i = 0; i < currentStock.Count; i++)
+        //    {
+        //        //display list to rich text box using ToString() override from Vehicle class
+        //        rtbDisplay.Text += $"{i + 1}: {currentStock[i].ToString()}";
+        //    }
+        //}
+        //Create the DisplayList() method that calls the FormatVehicle from the Stock class and
+        //displays it in the rich text box
+        public void DisplayList()
         {
-            //clear rich text box
-            rtbDisplay.Text = "";
-            //loop throught List<Vehicles>
-            for (int i = 0; i < currentStock.Count; i++)
-            {
-                //display list to rich text box using ToString() override from Vehicle class
-                rtbDisplay.Text += $"{i + 1}: {currentStock[i].ToString()}";
-            }
+            rtbDisplay.Text = inStock.FormatVehicle();
         }
         //create click event for btnRemoveStock
         private void btnRemoveStock_Click(object sender, RoutedEventArgs e)
@@ -74,8 +82,9 @@ namespace Testing
                     inStock.Vehicles.Remove(inStock.Vehicles[i]);
                     //clear user input from txRemoveVin
                     txtRemoveVin.Clear();
-                    //call the DisplayList method passing updated list to it
-                    DisplayList(inStock.Vehicles);
+                    //call the DisplayList method from the Stock class
+                    //Testing: DisplayList(inStock.Vehicles);
+                    DisplayList();
                     //stop searching for Vin match with return;
                     return;
                 }
